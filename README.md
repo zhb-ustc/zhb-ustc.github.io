@@ -1,7 +1,6 @@
-## 回溯算法
-
-You can use the [editor on GitHub](https://github.com/zhb-ustc/zhb-ustc.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
+# 回溯算法
+## 回溯算法与深度优先遍历
+1. **回溯算法**
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
