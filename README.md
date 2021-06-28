@@ -43,10 +43,11 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
         visited[i] = false;
     }
 }
+
+```
 ### 理解回溯  
 在执行深度优先遍历的过程中，从较深的节点返回到较浅的结点的时候，需要将状态重置，只有撤销上一次的选择，重置现场，才能够回到完全一样的过去，再开始新的尝试才会是有效的。
 当然也可以不回溯，每一次尝试都 **复制** 
-```
 
 
 
