@@ -27,20 +27,23 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
         result.push_back(path);
         return;
     }
-    
-    for (int i = 0; i < nums.size(); i++) {
+    // 遍历可选择的列表
+    for (int i = 0; i < nums.size(); i++) {                        
         // 排除不合法选择
         if (visited[i] == true) {
             continue; 
-        }
-        
+        }                        
+        // 做选择
         path.push_back(nums[i]);
-        visited[i] = true;
-        backtrack(nums, path, visited);
+        visited[i] = true;                       
+        // 进入下一层决策树
+        backtrack(nums, path, visited);                        
+        // 取消选择
         path.pop_back();
         visited[i] = false;
     }
 }
+
 
 
 
