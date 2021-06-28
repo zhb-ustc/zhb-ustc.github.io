@@ -20,7 +20,6 @@
 
 ### 回溯法框架（以全排列为例）
 ```markdown
-Syntax highlighted code block
 void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) {
     // 触发结束条件
     if (path.size() == nums.size()) {
@@ -49,7 +48,6 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
 在执行深度优先遍历的过程中，从较深的节点返回到较浅的结点的时候，需要将状态重置，只有撤销上一次的选择，重置现场，才能够回到完全一样的过去，再开始新的尝试才会是有效的。
 当然也可以不回溯，每一次尝试都**复制**，在每一个非叶子结点的分支的尝试，都创建新的变量表示状态向下一层节点传递，这样就可以不需要回溯了，但是这种做法会有一定的空间和时间消耗
 ```markdown
-Syntax highlighted code block
 void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) {
     if (path.size() == nums.size()) {
         result.push_back(path);
