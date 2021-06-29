@@ -147,7 +147,7 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
             path.pop_back();
         }
     }
-  // 方法3：根据上面画树形图的经验，如果 target 减去一个数得到负数，那么减去一个更大的树依然是负数，同样搜索不到结果。
+  // 方法3：根据上面画树形图的经验，如果target减去一个数得到负数，那么减去一个更大的树依然是负数，同样搜索不到结果。
   // 基于这个想法，我们可以对输入数组进行排序，添加相关逻辑达到进一步剪枝的目的  
     sort(candidates.begin(), candidates.end());
     void backtrack(vector<int>& candidates, vector<int>& path, int index, int target) {
@@ -157,7 +157,7 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
         }
         for (int i = index; i < candidates.size(); i++) {
             if (target < candidates[i]) {
-                break;
+                break;            //剪枝提速
             }
             path.push_back(candidates[i]);
             backtrack(candidates, path, i, target - candidates[i]);
