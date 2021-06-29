@@ -82,7 +82,7 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
   * 题目需要的解在哪里？在叶子结点还是非叶子结点？还是从根节结点到叶子结点的路径
   * 哪些搜索会产生不需要的解？产生重复的原因是什么？如果在树形图的浅层就知道这个分支不能产生需要的结果，应该提前剪枝
 
-### 回溯题目
+## 回溯题目
 #### 排列、组合、子集相关问题
 先绘图，再编码。思考可以剪枝的条件，哪些需要visited数组，哪些有需要设置搜索起点begin变量
   * [46全排列](https://leetcode-cn.com/problems/permutations/)
