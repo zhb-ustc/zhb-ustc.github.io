@@ -85,7 +85,7 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
 ### 回溯题目
 #### 排列、组合、子集相关问题
 先绘图，再编码。思考可以剪枝的条件，哪些需要visited数组，哪些有需要设置搜索起点begin变量
-  * [46全排列][https://leetcode-cn.com/problems/permutations/]
+  * [46全排列](https://leetcode-cn.com/problems/permutations/)
 ```markdown
 Syntax highlighted code block
 
