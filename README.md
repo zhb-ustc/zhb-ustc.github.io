@@ -109,14 +109,61 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
         }
     }
   ```
-  * [39组合总和](https://leetcode-cn.com/problems/combination-sum/)
+  * [39组合总和](https://leetcode-cn.com/problems/combination-sum/)  
   不同于排列问题（讲究顺序），组合问题（不讲究顺序）认为[1,2,3],[3,2,1]的是同一组解。如果按照排列的方式设置visited数组，绘制出决策树会发现解中存在[1,2,3],[3,2,1]重复解，
   因此对于这一类不计算顺序的问题时，我们在搜索时就需要**按照某种顺序搜索**，具体的做法是：每一次搜索的时候设置**下一轮搜索的起点begin**，这样就避免了[3,2,1]这种重复解决，并且
   不会遗漏，因为[1,2,3]这组解必包含在以1为根的子决策树上。
   ```markdown
-  // 方法1：剪枝位置在
-  // 方法2：
- 
+  // 方法1：剪枝位置在选择之后
+      void backtrack(vector<int>& candidates, vector<int>& path, int index, int target) {
+        if (target < 0) {// 剪枝
+            return;
+        }
+        if (target == 0) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = index; i < candidates.size(); i++) {
+            if (target < candidates[i]) {
+                continue;
+            }
+            path.push_back(candidates[i]);
+            backtrack(candidates, path, i, target - candidates[i]);
+            path.pop_back();
+        }
+    }
+  // 方法2：剪枝位置在选择时
+     void backtrack(vector<int>& candidates, vector<int>& path, int index, int target) {
+        if (target == 0) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = index; i < candidates.size(); i++) {
+            if (target < candidates[i]) {//剪枝
+                continue;
+            }
+            path.push_back(candidates[i]);
+            backtrack(candidates, path, i, target - candidates[i]);
+            path.pop_back();
+        }
+    }
+  // 方法3：根据上面画树形图的经验，如果 target 减去一个数得到负数，那么减去一个更大的树依然是负数，同样搜索不到结果。
+  // 基于这个想法，我们可以对输入数组进行排序，添加相关逻辑达到进一步剪枝的目的  
+    sort(candidates.begin(), candidates.end());
+    void backtrack(vector<int>& candidates, vector<int>& path, int index, int target) {
+        if (target == 0) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = index; i < candidates.size(); i++) {
+            if (target < candidates[i]) {
+                break;
+            }
+            path.push_back(candidates[i]);
+            backtrack(candidates, path, i, target - candidates[i]);
+            path.pop_back();
+        }
+    }
   ```
 ```markdown
 Syntax highlighted code block
