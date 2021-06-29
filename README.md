@@ -109,9 +109,14 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
         }
     }
   ```
-  [39组合总和](https://leetcode-cn.com/problems/combination-sum/)
+  * [39组合总和](https://leetcode-cn.com/problems/combination-sum/)
+  不同于排列问题（讲究顺序），组合问题（不讲究顺序）认为[1,2,3],[3,2,1]的是同一组解。如果按照排列的方式设置visited数组，绘制出决策树会发现解中存在[1,2,3],[3,2,1]重复解，
+  因此对于这一类不计算顺序的问题时，我们在搜索时就需要**按照某种顺序搜索**，具体的做法是：每一次搜索的时候设置**下一轮搜索的起点begin**，这样就避免了[3,2,1]这种重复解决，并且
+  不会遗漏，因为[1,2,3]这组解必包含在以1为根的子决策树上。
   ```markdown
-  ### da1da
+  // 方法1：剪枝位置在
+  // 方法2：
+ 
   ```
 ```markdown
 Syntax highlighted code block
