@@ -86,6 +86,29 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
 #### 排列、组合、子集相关问题
 先绘图，再编码。思考可以剪枝的条件，哪些需要visited数组，哪些有需要设置搜索起点begin变量
   * [46全排列](https://leetcode-cn.com/problems/permutations/)
+  * [47全排列(元素可重复)](https://leetcode-cn.com/problems/permutations-ii/)
+  ```markdown
+      void backtrack(vector<int>&nums, vector<int> path, vector<bool> visited) {
+        if (path.size() == nums.size()) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = 0; i < nums.size(); i++) {
+            if (visited[i] == true) {
+                continue;
+            }
+            // 绘制出决策树可以得知，当前面的元素与当前元素相等，并且前一个元素又没有被选中时，那么决策树中选当前元素和前一元素的形成的树的分支是完全一样的，因此需要剪枝
+            if (i > 0 && nums[i-1] == nums[i] && visited[i-1] == false) {
+                continue;
+            }
+            path.push_back(nums[i]);
+            visited[i] = true;
+            backtrack(nums, path, visited);
+            path.pop_back();
+            visited[i] = false;
+        }
+    }
+  ```
 ```markdown
 Syntax highlighted code block
 
