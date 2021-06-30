@@ -168,7 +168,7 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
   * [40组合总和(含重复元素)](https://leetcode-cn.com/problems/combination-sum-ii/)   
   这里组合类问题剪枝的思路，先对数组升序排列，减枝发生在**同一层数值相同的结点的第2，3...个结点，因为数值相同的第一个结点已经搜索出了包含这个数值的全部结果**，同一层的其他结点，候选数更少，
   搜索出的结果一定不会比第1个结点更多，并且是第1个结点的子集。  
-  ! (https://github.com/zhb-ustc/zhb-ustc.github.io/blob/main/1599718525-iXEiiy-image.png)  
+  ![](https://github.com/zhb-ustc/zhb-ustc.github.io/blob/main/1599718525-iXEiiy-image.png)  
   ```markdown
       void backtrack(vector<int>& candidates, vector<int> path, int begin, int target) {
         if (target == 0) {
