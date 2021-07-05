@@ -216,10 +216,9 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
     必须出现且只出现一个2，那么就放过第一个出现重复的2，但不放过后面出现的2。
     第一个出现的2的特点就是 i == begin. 第二个出现的2 特点是i > begin.
   ```
-  
-```markdown
 * [77组合](https://leetcode-cn.com/problems/combinations/)
 * [78子集](https://leetcode-cn.com/problems/subsets/)
+```markdown
 Syntax highlighted code block
 
 # Header 1
