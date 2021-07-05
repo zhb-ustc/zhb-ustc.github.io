@@ -218,6 +218,8 @@ void backtrack(const vector<int>& nums, vector<int> path, vector<bool> visited) 
   ```
   
 ```markdown
+* [77组合](https://leetcode-cn.com/problems/combinations/)
+* [78子集](https://leetcode-cn.com/problems/subsets/)
 Syntax highlighted code block
 
 # Header 1
